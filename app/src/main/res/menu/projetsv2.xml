@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <group
+        android:id="@+id/group_tri"
+        android:checkableBehavior="none"
+        android:enabled="true"
+        android:menuCategory="alternative"
+        android:visible="true">
+        <item
+            android:id="@+id/tri_nom"
+            android:checkable="true"
+            android:enabled="true"
+            android:title="Nom"
+            android:visible="true"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/tri_id"
+            android:checkable="true"
+            android:enabled="true"
+            android:title="ID"
+            android:visible="true" />
+        <item
+            android:id="@+id/tri_description"
+            android:checkable="true"
+            android:enabled="true"
+            android:title="Description"
+            android:visible="true" />
+    </group>
+</menu>

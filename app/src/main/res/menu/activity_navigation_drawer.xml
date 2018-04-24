@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/tab_bord"
+            android:icon="@android:drawable/ic_menu_today"
+            android:title="Tableau de Bord" />
+        <item
+            android:id="@+id/projets"
+            android:icon="@android:drawable/ic_input_get"
+            android:title="Projets" />
+        <item
+            android:id="@+id/audits"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Audits" />
+        <item
+            android:id="@+id/rapports"
+            android:icon="?android:attr/actionModeFindDrawable"
+            android:title="Rapports" />
+        <item
+            android:id="@+id/jobs"
+            android:icon="@android:drawable/ic_menu_directions"
+            android:title="Jobs" />
+        <item
+            android:id="@+id/users"
+            android:icon="@android:drawable/ic_menu_myplaces"
+            android:title="Utilisateurs" />
+    </group>
+
+</menu>
