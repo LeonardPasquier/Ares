@@ -14,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.ExpandableListView;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
@@ -23,7 +24,7 @@ import java.util.List;
 public class Audits extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private ListView liste_audits;
+    private ExpandableListView liste_audits;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +39,7 @@ public class Audits extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        liste_audits = (ListView) findViewById(R.id.listAudits);
+        liste_audits = (ExpandableListView) findViewById(R.id.listAudits);
 
         List<CardAudit> cards = genererAudits();
 
@@ -48,18 +49,18 @@ public class Audits extends AppCompatActivity
 
     private List<CardAudit> genererAudits(){
         List<CardAudit> cards = new ArrayList<CardAudit>();
-        cards.add(new CardAudit("1", "Ares", "Premier Audit" ));
-        cards.add(new CardAudit("2", "Bres", "Second Audit" ));
-        cards.add(new CardAudit("3", "Cres", "Nom d'Audit" ));
-        cards.add(new CardAudit("4", "Dres", "Blabla" ));
-        cards.add(new CardAudit("5", "Eres", "Car" ));
-        cards.add(new CardAudit("6", "Fres", "ouiii" ));
-        cards.add(new CardAudit("7", "Gres", "osef" ));
-        cards.add(new CardAudit("8", "Hres", "Lorem Ipsum" ));
-        cards.add(new CardAudit("9", "Ires", "hanhan" ));
-        cards.add(new CardAudit("10", "Jres", "Ananas" ));
-        cards.add(new CardAudit("11", "Kres", "Pizza" ));
-        cards.add(new CardAudit("12", "Lres", "Pizzananas" ));
+        cards.add(new CardAudit("1", "Ares", "Premier Audit" , "terminé", "3 mars", "4 juillet", 36, 12, 0));
+        cards.add(new CardAudit("2", "Bres", "Second Audit", "terminé", "3 mars", "4 juillet", 36, 12, 0 ));
+        cards.add(new CardAudit("3", "Cres", "Nom d'Audit", "terminé", "3 mars", "4 juillet", 36, 12, 0 ));
+        cards.add(new CardAudit("4", "Dres", "Blabla",  "terminé", "3 mars", "4 juillet", 36, 12, 0));
+        cards.add(new CardAudit("5", "Eres", "Car",  "terminé", "3 mars", "4 juillet", 36, 12, 0));
+        cards.add(new CardAudit("6", "Fres", "ouiii",  "terminé", "3 mars", "4 juillet", 36, 12, 0));
+        cards.add(new CardAudit("7", "Gres", "osef",  "terminé", "3 mars", "4 juillet", 36, 12, 0));
+        cards.add(new CardAudit("8", "Hres", "Lorem Ipsum",  "terminé", "3 mars", "4 juillet", 36, 12, 0));
+        cards.add(new CardAudit("9", "Ires", "hanhan",  "terminé", "3 mars", "4 juillet", 36, 12, 0));
+        cards.add(new CardAudit("10", "Jres", "Ananas",  "terminé", "3 mars", "4 juillet", 36, 12, 0));
+        cards.add(new CardAudit("11", "Kres", "Pizza",  "terminé", "3 mars", "4 juillet", 36, 12, 0));
+        cards.add(new CardAudit("12", "Lres", "Pizzananas",  "terminé", "3 mars", "4 juillet", 36, 12, 0));
         return cards;
     }
 

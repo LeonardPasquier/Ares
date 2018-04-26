@@ -16,7 +16,7 @@
             android:id="@+id/id"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:gravity="center"
             android:text="#Id"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
@@ -39,11 +39,5 @@
             android:gravity="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:scaleType="center"
-            app:srcCompat="@android:drawable/arrow_down_float" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
