@@ -14,17 +14,22 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class Audits extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private ExpandableListView liste_audits;
+    private ExpandableListAdapter listAdapter;
+    List<CardAudit> listDataHeader;
+    HashMap<String, List<CardAudit>> listDataChild;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,31 +44,45 @@ public class Audits extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
         liste_audits = (ExpandableListView) findViewById(R.id.listAudits);
+        prepareListData();
 
-        List<CardAudit> cards = genererAudits();
+        listAdapter = new ExpandableCardAuditAdapter(this, listDataHeader, listDataChild);
 
-        CardAuditAdapter adapter = new CardAuditAdapter(Audits.this, cards);
-        liste_audits.setAdapter(adapter);
+        liste_audits.setAdapter(listAdapter);
     }
 
-    private List<CardAudit> genererAudits(){
-        List<CardAudit> cards = new ArrayList<CardAudit>();
-        cards.add(new CardAudit("1", "Ares", "Premier Audit" , "terminé", "3 mars", "4 juillet", 36, 12, 0));
-        cards.add(new CardAudit("2", "Bres", "Second Audit", "terminé", "3 mars", "4 juillet", 36, 12, 0 ));
-        cards.add(new CardAudit("3", "Cres", "Nom d'Audit", "terminé", "3 mars", "4 juillet", 36, 12, 0 ));
-        cards.add(new CardAudit("4", "Dres", "Blabla",  "terminé", "3 mars", "4 juillet", 36, 12, 0));
-        cards.add(new CardAudit("5", "Eres", "Car",  "terminé", "3 mars", "4 juillet", 36, 12, 0));
-        cards.add(new CardAudit("6", "Fres", "ouiii",  "terminé", "3 mars", "4 juillet", 36, 12, 0));
-        cards.add(new CardAudit("7", "Gres", "osef",  "terminé", "3 mars", "4 juillet", 36, 12, 0));
-        cards.add(new CardAudit("8", "Hres", "Lorem Ipsum",  "terminé", "3 mars", "4 juillet", 36, 12, 0));
-        cards.add(new CardAudit("9", "Ires", "hanhan",  "terminé", "3 mars", "4 juillet", 36, 12, 0));
-        cards.add(new CardAudit("10", "Jres", "Ananas",  "terminé", "3 mars", "4 juillet", 36, 12, 0));
-        cards.add(new CardAudit("11", "Kres", "Pizza",  "terminé", "3 mars", "4 juillet", 36, 12, 0));
-        cards.add(new CardAudit("12", "Lres", "Pizzananas",  "terminé", "3 mars", "4 juillet", 36, 12, 0));
-        return cards;
-    }
+    private void prepareListData() {
+        listDataHeader = new ArrayList<CardAudit>();
+        listDataChild = new HashMap<String, List<CardAudit>>();
+        CardAudit ares = new CardAudit("1", "Ares", "Premier Audit" , "terminé", "3 mars", "4 juillet", 36, 12, 0);
+        CardAudit bres = new CardAudit("2", "Bres", "Second Audit", "terminé", "3 mars", "4 juillet", 36, 12, 0 );
+        CardAudit cres = new CardAudit("3", "Cres", "Nom d'Audit", "terminé", "3 mars", "4 juillet", 36, 12, 0 );
+        CardAudit dres = new CardAudit("4", "Dres", "Blabla",  "terminé", "3 mars", "4 juillet", 36, 12, 0);
+        CardAudit eres = new CardAudit("5", "Eres", "Car",  "terminé", "3 mars", "4 juillet", 36, 12, 0);
+        CardAudit fres = new CardAudit("6", "Fres", "ouiii",  "terminé", "3 mars", "4 juillet", 36, 12, 0);
+        CardAudit gres = new CardAudit("7", "Gres", "osef",  "terminé", "3 mars", "4 juillet", 36, 12, 0);
+        CardAudit hres = new CardAudit("8", "Hres", "Lorem Ipsum",  "terminé", "3 mars", "4 juillet", 36, 12, 0);
+        CardAudit ires = new CardAudit("9", "Ires", "hanhan",  "terminé", "3 mars", "4 juillet", 36, 12, 0);
+        CardAudit jres = new CardAudit("10", "Jres", "Ananas",  "terminé", "3 mars", "4 juillet", 36, 12, 0);
+        CardAudit kres = new CardAudit("11", "Kres", "Pizza",  "terminé", "3 mars", "4 juillet", 36, 12, 0);
+        CardAudit lres = new CardAudit("12", "Lres", "Pizzananas",  "terminé", "3 mars", "4 juillet", 36, 12, 0);
 
+        listDataHeader.add(ares);
+        listDataHeader.add(bres);
+        listDataHeader.add(cres);
+        listDataHeader.add(dres);
+        listDataHeader.add(eres);
+        listDataHeader.add(fres);
+        listDataHeader.add(gres);
+        listDataHeader.add(hres);
+        listDataHeader.add(ires);
+        listDataHeader.add(jres);
+        listDataHeader.add(kres);
+        listDataHeader.add(lres);
+
+    }
 
     @Override
     public void onBackPressed() {
