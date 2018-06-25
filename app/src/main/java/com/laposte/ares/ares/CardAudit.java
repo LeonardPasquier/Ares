@@ -16,7 +16,7 @@ public class CardAudit {
     private int vuln_moyenne;
     private int vuln_faible;
 
-    public CardAudit (String id, String projet, String nom, String statut, String date_debut, String date_fin, int vuln_faible, int vuln_moyenne, int vuln_forte){
+    public CardAudit(String id, String projet, String nom, String statut, String date_debut, String date_fin, int vuln_faible, int vuln_moyenne, int vuln_forte){
         this.id = id;
         this.projet = projet;
         this.nom = nom;
