@@ -1,10 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.laposte.ares.ares.TableauBord">
+    tools:context="com.laposte.ares.ares.TableauBord"
+    android:orientation="vertical">
 
-</android.support.constraint.ConstraintLayout>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:weightSum="10">
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="BIENVENUE SUR ARES"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+                    tools:layout_editor_absoluteX="0dp"
+                    tools:layout_editor_absoluteY="59dp" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:text="Dernier projet consulté"
+                    tools:layout_editor_absoluteX="16dp"
+                    tools:layout_editor_absoluteY="461dp"
+                    android:layout_weight="1"/>
+
+                <ExpandableListView
+                    android:id="@+id/projetListView"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    tools:layout_editor_absoluteX="5dp"
+                    tools:layout_editor_absoluteY="488dp"
+                    android:layout_weight="4">
+
+                </ExpandableListView>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:text="Dernier audit consulté"
+                    tools:layout_editor_absoluteX="16dp"
+                    tools:layout_editor_absoluteY="361dp"
+                    android:layout_weight="1" />
+
+                <ExpandableListView
+                    android:id="@+id/auditListView"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    tools:layout_editor_absoluteX="8dp"
+                    tools:layout_editor_absoluteY="392dp"
+                    android:layout_weight="4" />
+
+            </LinearLayout>
+        </ScrollView>
+
+
+    </LinearLayout>

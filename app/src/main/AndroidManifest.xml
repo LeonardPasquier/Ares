@@ -23,7 +23,7 @@
             android:name=".MdpOublie"
             android:theme="@android:style/Theme.Holo.Dialog" />
         <activity
-            android:name=".Projetsv2"
+            android:name=".Projets"
             android:label="@string/title_activity_projetsv2"
             android:parentActivityName=".ActivityMain"
             android:theme="@style/AppTheme.NoActionBar">

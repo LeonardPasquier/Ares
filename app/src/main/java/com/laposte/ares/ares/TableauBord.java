@@ -2,8 +2,6 @@ package com.laposte.ares.ares;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -13,9 +11,23 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ExpandableListView;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class TableauBord extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    MyExpandableProjectListAdapter projectListAdapter;
+    MyExpandableAuditListAdapter auditListAdapter;
+    ExpandableListView expListViewAudit;
+    ExpandableListView expListViewProject;
+    List<String> listDataHeaderProject;
+    HashMap<String, List<List<String>>> listDataChildProject;
+    List<String> listDataHeaderAudit;
+    HashMap<String, List<List<String>>> listDataChildAudit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,8 +44,92 @@ public class TableauBord extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+
+        expListViewProject = (ExpandableListView) findViewById(R.id.projetListView);
+
+        prepareListDataProject();
+
+        projectListAdapter = new MyExpandableProjectListAdapter(this, listDataHeaderProject, listDataChildProject);
+
+        // setting list adapter
+        expListViewProject.setAdapter(projectListAdapter);
+
+        // Listview Group click listener
+        expListViewProject.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
+
+            @Override
+            public boolean onGroupClick(ExpandableListView parent, View v,
+                                        int groupPosition, long id) {
+                // Toast.makeText(getApplicationContext(),
+                // "Group Clicked " + listDataHeader.get(groupPosition),
+                // Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        });
+
+        // Listview Group expanded listener
+        expListViewProject.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
+
+            @Override
+            public void onGroupExpand(int groupPosition) {
+//                Toast.makeText(getApplicationContext(),
+//                        listDataHeader.get(groupPosition) + " Expanded",
+//                        Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        // Listview Group collasped listener
+        expListViewProject.setOnGroupCollapseListener(new ExpandableListView.OnGroupCollapseListener() {
+
+            @Override
+            public void onGroupCollapse(int groupPosition) {
+//                Toast.makeText(getApplicationContext(),
+//                        listDataHeader.get(groupPosition) + " Collapsed",
+//                        Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+        // Listview on child click listener
+        expListViewProject.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+
+            @Override
+            public boolean onChildClick(ExpandableListView parent, View v,
+                                        int groupPosition, int childPosition, long id) {
+                // TODO Auto-generated method stub
+//                Toast.makeText(
+//                        getApplicationContext(),
+//                        listDataHeader.get(groupPosition)
+//                                + " : "
+//                                + listDataChild.get(
+//                                listDataHeader.get(groupPosition)).get(
+//                                childPosition), Toast.LENGTH_SHORT)
+//                        .show();
+                return false;
+            }
+        });
     }
 
+    private void prepareListDataProject() {
+        listDataHeaderProject = new ArrayList<String>();
+        listDataChildProject = new HashMap<String, List<List<String>>>();
+
+        // Adding child data
+        listDataHeaderProject.add("LastProject");
+
+        // Adding child data
+        List<List<String>> lastProject = new ArrayList<>();
+        List<String> contentLastProject = new ArrayList<>();
+        contentLastProject.add("DescriptionLastProject");
+        contentLastProject.add("10");
+        contentLastProject.add("140");
+        contentLastProject.add("1000");
+        lastProject.add(contentLastProject);
+
+        listDataChildProject.put(listDataHeaderProject.get(0), lastProject);
+
+    }
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -75,7 +171,7 @@ public class TableauBord extends AppCompatActivity
         if (id == R.id.tab_bord) {
         }
         else if (id == R.id.projets) {
-            Intent intent = new Intent(TableauBord.this, Projetsv2.class);
+            Intent intent = new Intent(TableauBord.this, Projets.class);
             startActivity(intent);
         }
         else if (id == R.id.audits) {

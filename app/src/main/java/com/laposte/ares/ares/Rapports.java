@@ -2,8 +2,6 @@ package com.laposte.ares.ares;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -77,7 +75,7 @@ public class Rapports extends AppCompatActivity
             startActivity(intent);
         }
         else if (id == R.id.projets) {
-            Intent intent = new Intent(Rapports.this, Projetsv2.class);
+            Intent intent = new Intent(Rapports.this, Projets.class);
             startActivity(intent);
         }
         else if (id == R.id.audits) {
