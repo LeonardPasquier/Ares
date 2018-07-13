@@ -28,14 +28,14 @@ public class ActivityMain extends Activity {
         valider.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (String.valueOf(password.getText()).equals("byToto") && String.valueOf(login.getText()).equals("Africa")){
+//                if (String.valueOf(password.getText()).equals("byToto") && String.valueOf(login.getText()).equals("Africa")){
                     Intent intent = new Intent(ActivityMain.this, TableauBord.class);
                     startActivity(intent);
-                }
-                else {
-                    Toast toast = Toast.makeText(getApplicationContext(), "Le login ou le mot de passe est incorrect.", Toast.LENGTH_SHORT);
-                    toast.show();
-                }
+                //}
+//                else {
+//                    Toast toast = Toast.makeText(getApplicationContext(), "Le login ou le mot de passe est incorrect.", Toast.LENGTH_SHORT);
+//                    toast.show();
+//                }
             }
         });
     }

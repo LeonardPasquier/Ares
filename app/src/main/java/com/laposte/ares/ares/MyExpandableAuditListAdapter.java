@@ -75,8 +75,8 @@ public class MyExpandableAuditListAdapter extends BaseExpandableListAdapter {
             @Override
             public void onClick(View v) {
                 Intent intent;
-                intent = new Intent(Audits.this, TableauBord.class);
-                startActivity(intent);
+                intent = new Intent(_context, Consult_audit.class);
+                _context.startActivity(intent);
             }
         });
 
