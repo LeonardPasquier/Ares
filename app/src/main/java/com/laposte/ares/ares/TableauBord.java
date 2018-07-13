@@ -47,13 +47,17 @@ public class TableauBord extends AppCompatActivity
 
 
         expListViewProject = (ExpandableListView) findViewById(R.id.projetListView);
+        expListViewAudit = (ExpandableListView) findViewById(R.id.auditListView);
 
         prepareListDataProject();
+        prepareListDataAudit();
 
         projectListAdapter = new MyExpandableProjectListAdapter(this, listDataHeaderProject, listDataChildProject);
+        auditListAdapter = new MyExpandableAuditListAdapter(this, listDataHeaderAudit, listDataChildAudit);
 
         // setting list adapter
         expListViewProject.setAdapter(projectListAdapter);
+        expListViewAudit.setAdapter(auditListAdapter);
 
         // Listview Group click listener
         expListViewProject.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
@@ -109,6 +113,59 @@ public class TableauBord extends AppCompatActivity
                 return false;
             }
         });
+        // Listview Group click listener
+        expListViewAudit.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
+
+            @Override
+            public boolean onGroupClick(ExpandableListView parent, View v,
+                                        int groupPosition, long id) {
+                // Toast.makeText(getApplicationContext(),
+                // "Group Clicked " + listDataHeader.get(groupPosition),
+                // Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        });
+
+        // Listview Group expanded listener
+        expListViewAudit.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
+
+            @Override
+            public void onGroupExpand(int groupPosition) {
+//                Toast.makeText(getApplicationContext(),
+//                        listDataHeader.get(groupPosition) + " Expanded",
+//                        Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        // Listview Group collasped listener
+        expListViewAudit.setOnGroupCollapseListener(new ExpandableListView.OnGroupCollapseListener() {
+
+            @Override
+            public void onGroupCollapse(int groupPosition) {
+//                Toast.makeText(getApplicationContext(),
+//                        listDataHeader.get(groupPosition) + " Collapsed",
+//                        Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+        // Listview on child click listener
+        expListViewAudit.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+
+            @Override
+            public boolean onChildClick(ExpandableListView parent, View v,
+                                        int groupPosition, int childPosition, long id) {
+//                Toast.makeText(
+//                        getApplicationContext(),
+//                        listDataHeader.get(groupPosition)
+//                                + " : "
+//                                + listDataChild.get(
+//                                listDataHeader.get(groupPosition)).get(
+//                                childPosition), Toast.LENGTH_SHORT)
+//                        .show();
+                return false;
+            }
+        });
     }
 
     private void prepareListDataProject() {
@@ -128,6 +185,28 @@ public class TableauBord extends AppCompatActivity
         lastProject.add(contentLastProject);
 
         listDataChildProject.put(listDataHeaderProject.get(0), lastProject);
+
+    }
+
+    private void prepareListDataAudit() {
+        listDataHeaderAudit = new ArrayList<String>();
+        listDataChildAudit = new HashMap<String, List<List<String>>>();
+
+        // Adding child data
+        listDataHeaderAudit.add("LastAudit");
+
+        // Adding child data
+        List<List<String>> lastAudit = new ArrayList<>();
+        List<String> contentLastAudit = new ArrayList<>();
+        contentLastAudit.add("Statut dernier audit");
+        contentLastAudit.add("Date debut dernier audit");
+        contentLastAudit.add("Date fin dernier audit");
+        contentLastAudit.add("10");
+        contentLastAudit.add("140");
+        contentLastAudit.add("1000");
+        lastAudit.add(contentLastAudit);
+
+        listDataChildAudit.put(listDataHeaderAudit.get(0), lastAudit);
 
     }
     @Override
