@@ -1,12 +1,15 @@
 package com.laposte.ares.ares;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.HashMap;
 import java.util.List;
@@ -58,6 +61,8 @@ public class MyExpandableAuditListAdapter extends BaseExpandableListAdapter {
         TextView vuln_fortes = (TextView) convertView.findViewById(R.id.vuln_fortes);
         TextView vuln_moyennes = (TextView) convertView.findViewById(R.id.vuln_moyennes);
         TextView vuln_faibles = (TextView) convertView.findViewById(R.id.vun_faibles);
+        Button consulter = (Button) convertView.findViewById(R.id.consulter);
+        Button editer = (Button) convertView.findViewById(R.id.Editer);
 
         statut.setText(childArray.get(0));
         date_debut.setText(childArray.get(1));
@@ -65,6 +70,23 @@ public class MyExpandableAuditListAdapter extends BaseExpandableListAdapter {
         vuln_fortes.setText(childArray.get(3));
         vuln_moyennes.setText(childArray.get(4));
         vuln_faibles.setText(childArray.get(5));
+
+        consulter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent;
+                intent = new Intent(Audits.this, TableauBord.class);
+                startActivity(intent);
+            }
+        });
+
+        editer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast toast = Toast.makeText(_context, "Nous éditons le projet "+childArray.get(0), Toast.LENGTH_SHORT);
+                toast.show();
+            }
+        });
 
         return convertView;
     }

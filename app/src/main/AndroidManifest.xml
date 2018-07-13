@@ -53,9 +53,14 @@
             android:label="@string/title_activity_jobs"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
+            android:name=".Consult_audit"
+            android:label="Consulter"
+            android:parentActivityName=".Audits"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".Users"
             android:label="@string/title_activity_users"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>
